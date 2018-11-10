@@ -11,9 +11,20 @@
     "require": {
         "php": "^7.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
     "autoload": {
         "psr-4": {
             "Netflie\\StaticMapSystem\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Netflie\\StaticMapSystem\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
