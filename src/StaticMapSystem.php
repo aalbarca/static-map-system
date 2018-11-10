@@ -2,7 +2,7 @@
 
 namespace Netflie\StaticMapSystem;
 
-class StaticMapSystem implements StaticMapSytemInterface
+class StaticMapSystem implements StaticMapSystemInterface
 {
     public function __construct(AdapterInterface $adapter)
     {
@@ -44,7 +44,7 @@ class StaticMapSystem implements StaticMapSytemInterface
         $this->getAdapter()->addMarker($marker);
     }
 
-    public function imgTag($options): string
+    public function getImgTag($options): string
     {
         $defaultOptions = [
             'width' => $this->getAdapter()->getWidth(),

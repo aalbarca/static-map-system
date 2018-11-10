@@ -16,5 +16,5 @@ interface StaticMapSystemInterface
 
     public function addMarker(string $marker);
 
-    public function getImgTag(): string;
+    public function getImgTag($options): string;
 }
