@@ -2,23 +2,23 @@
 
 namespace Netflie\StaticMapSystem\Adapter;
 
-interface AdapterInterface extends MapTypeInterface, FormatInterface
+interface AdapterInterface
 {
-    public function setCenter(string $center);
+    public function setCenter(string $center): bool;
 
-    public function setSize(int $width, int $height);
+    public function setSize(int $width, int $height): bool;
 
     public function getWidth(): int;
 
     public function getHeight(): int;
 
-    public function setZoom(int $zoom);
+    public function setZoom(int $zoom): bool;
 
-    public function setMapType(string $mapType);
+    public function setMapType(string $mapType): bool;
 
-    public function setFormat(string $format);
+    public function setFormat(string $format): bool;
 
-    public function addMarker(string $marker);
+    public function addMarker(string $marker): bool;
 
     public function getUri(): string;
 }

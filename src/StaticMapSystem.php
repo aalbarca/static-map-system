@@ -2,8 +2,13 @@
 
 namespace Netflie\StaticMapSystem;
 
+use Netflie\StaticMapSystem\Adapter\AdapterInterface;
+
 class StaticMapSystem implements StaticMapSystemInterface
 {
+    use MapTypeTrait;
+    use FormatTrait;
+
     public function __construct(AdapterInterface $adapter)
     {
         $this->adapter = $adapter;
@@ -14,37 +19,41 @@ class StaticMapSystem implements StaticMapSystemInterface
         return $this->adapter;
     }
 
-    public function setCenter(string $center)
+    public function setCenter(string $center): bool
     {
-        $this->getAdapter()->setCenter($center);
+        return $this->getAdapter()->setCenter($center);
     }
 
-    public function setSize(int $width, int $height)
+    public function setSize(int $width, int $height): bool
     {
-        $this->getAdapter()->setSize($width, $height);
+        return $this->getAdapter()->setSize($width, $height);
     }
 
-    public function setZoom(int $zoom)
+    public function setZoom(int $zoom): bool
     {
-        $this->getAdapter()->setZoom($zoom);
+        return $this->getAdapter()->setZoom($zoom);
     }
 
-    public function setMapType(string $mapType)
+    public function setMapType(string $mapType): bool
     {
-        $this->getAdapter()->setMapType($mapType);
+        $this->assertMapTypeExists($mapType);
+
+        return $this->getAdapter()->setMapType($mapType);
     }
 
     public function setFormat(string $format)
     {
-        $this->getAdapter()->setFormat($format);
+        $this->assertFormatExists($format);
+
+        return $this->getAdapter()->setFormat($format);
     }
 
     public function addMarker(string $marker)
     {
-        $this->getAdapter()->addMarker($marker);
+        return $this->getAdapter()->addMarker($marker);
     }
 
-    public function getImgTag($options): string
+    public function getImgTag($options = []): string
     {
         $defaultOptions = [
             'width' => $this->getAdapter()->getWidth(),

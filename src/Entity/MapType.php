@@ -1,10 +1,10 @@
 <?php
 
-namespace Netflie\StaticMapSystem\Adapter;
+namespace  Netflie\StaticMapSystem\Entity;
 
-interface MapTypeInterface
+abstract class MapType
 {
-	const ROADMAP_TYPE = 'roadmap';
+    const ROADMAP_TYPE = 'roadmap';
     const SATELLITE_TYPE = 'satellite';
     const HYBRID_TYPE = 'hybrid';
     const TERRAIN_TYPE = 'terrain';
