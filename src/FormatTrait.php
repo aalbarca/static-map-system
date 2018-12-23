@@ -4,6 +4,8 @@ namespace  Netflie\StaticMapSystem;
 
 use Netflie\StaticMapSystem\Entity\Format as MapFormat;
 use Netflie\StaticMapSystem\Exception\FormatNotFoundException;
+use Netflie\StaticMapSystem\Exception\MappedFormatsNotImplemented;
+use Netflie\StaticMapSystem\Exception\BadMappedFormatTypeException;
 
 trait FormatTrait
 {
@@ -15,6 +17,11 @@ trait FormatTrait
         ];
     }
 
+    public function formatExists($format)
+    {
+        return in_array($format, $this->getFormats());
+    }
+
     public function assertFormatExists($format)
     {
         if (!$this->formatExists($format)) {
@@ -22,8 +29,22 @@ trait FormatTrait
         }
     }
 
-    public function formatExists($format)
+    public function getMappedFormats()
     {
-        return in_array($format, $this->getFormats());
+        throw new MappedFormatsNotImplemented;
+    }
+
+    public function getMappedFormatValue($format)
+    {
+        if (!$this->hasMappedValue($format)) {
+            throw new BadMappedFormatTypeException($format);
+        }
+
+        return $this->getMappedFormats()[$format];
+    }
+
+    private function hasMappedValue($format)
+    {
+        return array_key_exists($format, $this->getMappedFormats());
     }
 }
