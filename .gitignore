@@ -3,3 +3,6 @@ composer.phar
 /build/
 composer.lock
 /docs/
+static-map-system.sublime-project
+static-map-system.sublime-workspace
+
