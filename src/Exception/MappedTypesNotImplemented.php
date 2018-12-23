@@ -2,7 +2,7 @@
 
 namespace  Netflie\StaticMapSystem\Exception;
 
-class MappedTypeNotImplemented extends \Exception
+class MappedTypesNotImplemented extends \Exception
 {
     protected const MESSAGE = 'Adapter has to implement its own mapped types. Check the doc to more information.';
 

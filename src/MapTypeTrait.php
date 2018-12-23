@@ -34,10 +34,9 @@ trait MapTypeTrait
     public function getMappedTypes()
     {
         throw new MappedTypesNotImplemented;
-        
     }
 
-    private function getMappedValue($mapType)
+    public function getMappedTypeValue($mapType)
     {
         if (!$this->hasMappedValue($mapType)) {
             throw new BadMappedMapTypeException($mapType);
