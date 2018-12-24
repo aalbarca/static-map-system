@@ -36,14 +36,14 @@ trait FormatTrait
 
     public function getMappedFormatValue($format)
     {
-        if (!$this->hasMappedValue($format)) {
+        if (!$this->hasMappedFormatValue($format)) {
             throw new BadMappedFormatTypeException($format);
         }
 
         return $this->getMappedFormats()[$format];
     }
 
-    private function hasMappedValue($format)
+    private function hasMappedFormatValue($format)
     {
         return array_key_exists($format, $this->getMappedFormats());
     }

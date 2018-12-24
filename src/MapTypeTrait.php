@@ -38,14 +38,14 @@ trait MapTypeTrait
 
     public function getMappedTypeValue($mapType)
     {
-        if (!$this->hasMappedValue($mapType)) {
+        if (!$this->hasMappedTypeValue($mapType)) {
             throw new BadMappedMapTypeException($mapType);
         }
 
         return $this->getMappedTypes()[$mapType];
     }
 
-    private function hasMappedValue($mapType)
+    private function hasMappedTypeValue($mapType)
     {
         return array_key_exists($mapType, $this->getMappedTypes());
     }
